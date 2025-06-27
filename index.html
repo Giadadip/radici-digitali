@@ -19,6 +19,9 @@
       background: #253c2c;
       color: white;
       padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     nav {
       display: flex;
@@ -50,11 +53,12 @@
       padding: 1rem;
       flex: 1 1 calc(50% - 1rem);
       min-width: 300px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     }
     .card:hover {
       transform: scale(1.02);
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      background: #f1f1f1;
     }
     #mappa {
       height: 400px;
@@ -159,6 +163,9 @@
 
     L.marker([39.32, 16.53]).addTo(map)
       .bindPopup('Benvenuto nella Presila!');
+
+    L.marker([39.35, 16.55]).addTo(map)
+      .bindPopup('La fontana del bosco');
   </script>
 </body>
 </html>

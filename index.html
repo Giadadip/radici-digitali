@@ -152,30 +152,36 @@
     </div>
 <h3 id="mappa-interattiva" style="margin-top: 3rem;">La Presila in una mappa interattiva</h3>
 <div id="mappa" style="height: 400px; margin-top: 1rem;"></div>
+
   </section>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-  var map = L.map('mappa').setView([39.3, 16.4], 11); // Vista centrata meglio sulla Presila
+  var map = L.map('mappa').setView([39.32, 16.45], 11);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-  // 🔵 Cerchio della Presila Cosentina (raggio aumentato per includere la chiesa)
-  L.circle([39.29, 16.35], {
+  // ◼️ Poligono che include Chiesa e metà laghi
+  var presilaCoords = [
+    [39.40, 16.30],
+    [39.40, 16.65],  // nord fino ai laghi
+    [39.25, 16.65],  // sud fino ai laghi
+    [39.25, 16.30]   // sud-ovest
+  ];
+
+  L.polygon(presilaCoords, {
     color: '#253c2c',
     fillColor: '#a5d6a7',
-    fillOpacity: 0.3,
-    radius: 13000
+    fillOpacity: 0.2
   }).addTo(map).bindPopup("Area della Presila Cosentina");
 
-  // 🏛️ Marker per la Chiesa della Madonna della Catena
+  // 🏛️ Marker per Chiesa della Madonna della Catena
   L.marker([39.27893, 16.30156]).addTo(map)
-    .bindPopup('<b>Chiesa della Madonna della Catena</b><br><a href="patrimonio.html">Scopri di più</a>');
-
-  // 🟢 (Opzionale) Altri marker? Aggiungili con lo stesso schema
+    .bindPopup('<b>Chiesa della Madonna della Catena</b><br>📍 Via Catena 55, Casali del Manco (CS)<br><a href="patrimonio.html">Scopri di più</a>');
 </script>
+
 
     <footer>
     © 2025 Radici Digitali – Presila Cosentina

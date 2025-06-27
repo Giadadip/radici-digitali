@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Radici Digitali – Presila Cosentina</title>
   <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Merriweather', serif;
       margin: 0;
       padding: 0;
       background: #f9f9f9;
+      transition: background 0.5s;
     }
     header {
       background: #253c2c;
@@ -54,6 +57,14 @@
       padding: 1rem;
       flex: 1 1 calc(50% - 1rem);
       min-width: 300px;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    #mappa {
+      height: 400px;
+      margin-top: 2rem;
     }
     footer {
       background: #253c2c;
@@ -100,10 +111,23 @@
         <p>Esplora sentieri, animali, piante e storie mitiche del territorio.</p>
       </div>
     </div>
+    <div id="mappa"></div>
   </section>
 
   <footer>
     © 2025 Radici Digitali – Presila Cosentina
   </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('mappa').setView([39.32, 16.53], 10);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    L.marker([39.32, 16.53]).addTo(map)
+      .bindPopup('Benvenuto nella Presila!')
+      .openPopup();
+  </script>
 </body>
 </html>

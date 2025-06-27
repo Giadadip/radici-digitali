@@ -158,14 +158,14 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
   // Vista centrata su Presila (compromesso tra chiesa e laghi)
-  var map = L.map('mappa').setView([39.30, 13.38], 11.3);
+  var map = L.map('mappa').setView([39.30, 16.38], 11.3);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contrib'
   }).addTo(map);
 
   // Cerchio soft per area Presila fino a metà laghi
-  L.circle([39.40, 16.48], {
+  L.circle([39.34, 16.48], {
     color: '#253c2c',
     fillColor: '#a5d6a7',
     fillOpacity: 0.2,

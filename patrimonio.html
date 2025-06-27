@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madonna della Catena – Radici Digitali</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: 'Merriweather', serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+    header, footer {
+      background: #253c2c;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    .content {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 {
+      color: #253c2c;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+    .gallery img {
+      max-width: 280px;
+      border-radius: 6px;
+    }
+    #map-chiesa {
+      height: 350px;
+      margin-top: 2rem;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Chiesa della Madonna della Catena</h1>
+  </header>
+
+  <div class="content">
+    <p>
+      Situata nella suggestiva cornice della Presila Cosentina, la Chiesa della Madonna della Catena &egrave; uno scrigno di spiritualit&agrave; e arte popolare. Al suo interno si possono ammirare affreschi di grande valore storico e simbolico, datati presumibilmente al 1600, testimoni di secoli di fede e tradizione. La chiesetta conserva ancora oggi una forte valenza identitaria per la comunit&agrave; locale.
+    </p>
+
+    <div class="gallery">
+      <img src="foto chiesa catena.jpg" alt="Interno della chiesa">
+      <img src="foto chiesa catena 1.jpg" alt="Affreschi murali">
+      <img src="foto chiesa catena 2.jpg" alt="Campanella all'interno della chiesa">
+    </div>
+<p style="font-size: 0.9rem; color: #666; text-align: center; margin-top: 1rem;">
+  📷 Immagini tratte dal profilo Facebook <strong><em>Rosaria Baldino</em></strong>.
+</p>
+
+    <h2>Dove si trova</h2>
+    <div id="map-chiesa"></div>
+  </div>
+
+  <footer>
+    © 2025 Radici Digitali
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+  var chiesaMap = L.map('map-chiesa').setView([39.27893, 16.30156], 17);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap'
+  }).addTo(chiesaMap);
+
+  L.marker([39.27893, 16.30156]).addTo(chiesaMap)
+    .bindPopup('Chiesa della Madonna della Catena – Casali del Manco (CS)').openPopup();
+</script>
+
+</body>
+</html>

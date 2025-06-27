@@ -157,29 +157,24 @@
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-  var map = L.map('mappa').setView([39.32, 16.45], 11);
+  // Vista centrata su Presila (compromesso tra chiesa e laghi)
+  var map = L.map('mappa').setView([39.30, 16.38], 11.3);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
+    attribution: '&copy; OpenStreetMap contrib'
   }).addTo(map);
 
-  // ◼️ Poligono che include Chiesa e metà laghi
-  var presilaCoords = [
-    [39.40, 16.30],
-    [39.40, 16.65],  // nord fino ai laghi
-    [39.25, 16.65],  // sud fino ai laghi
-    [39.25, 16.30]   // sud-ovest
-  ];
-
-  L.polygon(presilaCoords, {
+  // Cerchio soft per area Presila fino a metà laghi
+  L.circle([39.30, 16.38], {
     color: '#253c2c',
     fillColor: '#a5d6a7',
-    fillOpacity: 0.2
-  }).addTo(map).bindPopup("Area della Presila Cosentina");
+    fillOpacity: 0.2,
+    radius: 10000  // raggio 10 km
+  }).addTo(map).bindPopup("Area indicativa della Presila");
 
-  // 🏛️ Marker per Chiesa della Madonna della Catena
+  // Marker per la Chiesa della Madonna della Catena
   L.marker([39.27893, 16.30156]).addTo(map)
-    .bindPopup('<b>Chiesa della Madonna della Catena</b><br>📍 Via Catena 55, Casali del Manco (CS)<br><a href="patrimonio.html">Scopri di più</a>');
+    .bindPopup('<b>Chiesa della Madonna della Catena</b><br>📍 Via Catena 55, Casali del Manco (CS)<br><a href="patrimonio.html">Scopri di pi&ugrave;</a>');
 </script>
 
 

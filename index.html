@@ -29,18 +29,11 @@
       color: white;
       margin: 0 1rem;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
-    .hero {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/4/4b/Sila_piccola.jpg') center/cover;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 0 0 10px black;
-    }
-    .hero h1 {
-      font-size: 3rem;
+    nav a:hover {
+      text-decoration: underline;
+      color: #cddc39;
     }
     .section {
       padding: 2rem;
@@ -57,10 +50,11 @@
       padding: 1rem;
       flex: 1 1 calc(50% - 1rem);
       min-width: 300px;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
       transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     #mappa {
       height: 400px;
@@ -72,12 +66,41 @@
       text-align: center;
       padding: 1rem;
     }
+    .logo-section {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .logo-section img {
+      max-width: 300px;
+      height: auto;
+    }
+    .intro-section {
+      background: #e0e0e0;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .intro-box {
+      max-width: 700px;
+      margin: auto;
+      padding: 1rem;
+    }
+    .intro-box h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #253c2c;
+    }
+    .intro-box h3 {
+      font-weight: normal;
+      color: #444;
+    }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <div><strong>Radici Digitali</strong></div>
+      <div>
+        <strong>Radici Digitali</strong>
+      </div>
       <div>
         <a href="#">Esplora</a>
         <a href="#">Storie</a>
@@ -87,17 +110,25 @@
       </div>
     </nav>
   </header>
-<section class="section">
-  <img src="logo.png" alt="Logo Radici Digitali" style="max-width:200px; display:block; margin:auto;">
-  <h2 style="text-align:center;">Un archivio narrativo del territorio presilano</h2>
-</section>
-  <div class="hero">
-    <h1>Scopri le storie della Presila</h1>
-  </div>
+
+  <section class="logo-section">
+    <img src="logo.png" alt="Logo Radici Digitali">
+  </section>
+
+  <section class="intro-section">
+    <div class="intro-box">
+      <h1>Scopri le storie della Presila</h1>
+      <h3>Un archivio narrativo del territorio presilano</h3>
+    </div>
+  </section>
 
   <section class="section">
     <h2>Esplora il territorio</h2>
     <div class="cards">
+      <div class="card">
+        <h3>📍 Mappa Interattiva</h3>
+        <p>Visualizza i luoghi di memoria e natura con geolocalizzazione e storie.</p>
+      </div>
       <div class="card">
         <h3>📜 Racconti di vita</h3>
         <p>Ascolta le voci degli abitanti e le memorie delle generazioni passate.</p>
@@ -110,11 +141,8 @@
         <h3>🌿 Natura e leggende</h3>
         <p>Esplora sentieri, animali, piante e storie mitiche del territorio.</p>
       </div>
-       <div class="card">
-        <h3>📍 Mappa Interattiva</h3>
-        <p>Visualizza i luoghi di memoria e natura con geolocalizzazione e storie.</p>
-      </div>
     </div>
+    <h3 style="margin-top: 3rem;">La Presila in una mappa interattiva</h3>
     <div id="mappa"></div>
   </section>
 
@@ -130,8 +158,7 @@
     }).addTo(map);
 
     L.marker([39.32, 16.53]).addTo(map)
-      .bindPopup('Benvenuto nella Presila!')
-      .openPopup();
+      .bindPopup('Benvenuto nella Presila!');
   </script>
 </body>
 </html>

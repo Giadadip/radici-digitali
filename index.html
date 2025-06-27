@@ -165,12 +165,13 @@
   }).addTo(map);
 
   // Cerchio soft per area Presila fino a metà laghi
-  L.circle([39.30, 16.48], {
-    color: '#253c2c',
-    fillColor: '#a5d6a7',
-    fillOpacity: 0.2,
-    radius: 20000  // raggio 10 km
-  }).addTo(map).bindPopup("Area indicativa della Presila");
+L.circle([39.29, 16.48], {  // spostato più a sud
+  color: '#253c2c',
+  fillColor: '#a5d6a7',
+  fillOpacity: 0.2,
+  radius: 22000  // ingrandito il raggio
+}).addTo(map).bindPopup("Area indicativa della Presila");
+
 
   // Marker per la Chiesa della Madonna della Catena
   L.marker([39.27893, 16.30156]).addTo(map)

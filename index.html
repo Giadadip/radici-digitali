@@ -160,13 +160,21 @@
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
-    var map = L.map('mappa').setView([39.32, 16.53], 10);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
+<script>
+  var map = L.map('mappa').setView([39.32, 16.53], 10);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
 
-    L.marker([39.32, 16.53]).addTo(map)
-      .bindPopup('Benvenuto nella Presila!');
+  // Marker generico di benvenuto
+  L.marker([39.32, 16.53]).addTo(map)
+    .bindPopup('Benvenuto nella Presila!');
+
+  // 🔔 Marker per la Chiesa della Madonna della Catena
+  L.marker([39.27893, 16.30156]).addTo(map)
+    .bindPopup('<b>Chiesa della Madonna della Catena</b><br><a href="patrimonio.html">Scopri di più</a>');
+</script>
+
 
     L.marker([39.35, 16.55]).addTo(map)
       .bindPopup('La fontana del bosco');

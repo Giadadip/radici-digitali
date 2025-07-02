@@ -26,32 +26,46 @@
     h1 {
       color: #253c2c;
     }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin: 1.5rem 0;
-    }
-    .gallery img {
-      max-width: 280px;
-      border-radius: 6px;
-    }
-    #map-chiesa {
-      height: 350px;
-      margin-top: 2rem;
-      border-radius: 8px;
-    }
-    .gallery figure {
-  display: inline-block;
-  text-align: center;
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 2rem 0;
+  background: #f1f1f1;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.gallery figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 280px;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
 }
 
 .gallery figcaption {
   font-size: 0.85rem;
   color: #555;
-  margin-top: 0.4rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+    #map-chiesa {
+      height: 350px;
+      margin-top: 2rem;
+      border-radius: 8px;
 }
   </style>
 </head>
@@ -64,14 +78,21 @@
     <p>
       Situata nella suggestiva cornice della Presila Cosentina, la Chiesa della Madonna della Catena &egrave; uno scrigno di spiritualit&agrave; e arte popolare. Al suo interno si possono ammirare affreschi di grande valore storico e simbolico, datati presumibilmente al 1600, testimoni di secoli di fede e tradizione. La chiesetta conserva ancora oggi una forte valenza identitaria per la comunit&agrave; locale.
     </p>
+  <div class="gallery">
+  <figure>
+    <img src="foto chiesa catena.jpg" alt="Interno della chiesa">
+    <figcaption>Interno della chiesa con l'altare e la statua della Madonna della Catena</figcaption>
+  </figure>
+  <figure>
+    <img src="foto chiesa catena 1.jpg" alt="Affreschi murali">
+    <figcaption>Pareti della chiesa affrescate di dipinti religiosi</figcaption>
+  </figure>
+  <figure>
+    <img src="foto chiesa catena 2.jpg" alt="Campanella all'interno della chiesa">
+    <figcaption>Antica campanella in ferro battuto all’interno della chiesa</figcaption>
+  </figure>
+</div>
 
-    <div class="gallery">
-      <figure><img src="foto chiesa catena.jpg" alt="Interno della chiesa"></figure>
-      <figcaption>Interno della chiesa con l'altare e la statua della Madonna della Catena</figcaption>
-      <figure><img src="foto chiesa catena 1.jpg" alt="Affreschi murali"></figure>
-      <figcaption>Pareti della chiesa affrescate di dipinti religiosi</figcaption>
-      <figure><img src="foto chiesa catena 2.jpg" alt="Campanella all'interno della chiesa"></figure>      
-    </div>
 <p style="font-size: 0.9rem; color: #666; text-align: center; margin-top: 1rem;">
   📷 Immagini tratte dal profilo Facebook <strong><em>Rosaria Baldino</em></strong>.
 </p>

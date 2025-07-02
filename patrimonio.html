@@ -29,12 +29,12 @@
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
-  margin: 2rem 0;
-  background: #f1f1f1;
-  padding: 1rem;
-  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow: visible; /* importante per far vedere l'immagine ingrandita */
+  position: relative;
+  z-index: 0;
 }
 
 .gallery figure {
@@ -53,12 +53,16 @@
   height: auto;
   border-radius: 6px;
   object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: zoom-in;
 }
 
 .gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0,
+  transform: scale(2.2); /* molto ingrandita */
+  z-index: 10;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
 
 
 .gallery figcaption {

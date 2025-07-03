@@ -14,6 +14,7 @@
       background: #f9f9f9;
       color: #333;
     }
+
     header {
       background: #253c2c;
       color: white;
@@ -22,53 +23,70 @@
       top: 0;
       z-index: 1000;
     }
+
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: auto;
+    }
+
     nav a {
       color: white;
       margin: 0 1rem;
       text-decoration: none;
     }
+
     nav a:hover {
       text-decoration: underline;
       color: #cddc39;
     }
+
     .section {
       max-width: 900px;
       margin: auto;
       padding: 2rem;
     }
+
     .intro {
       text-align: center;
       margin-bottom: 2rem;
     }
-   .person {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
 
-.person img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 100px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
-}
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
 
-.person img:hover {
-  transform: scale(1.1);
-}
+    .person img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 100px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
 
-.person .bio {
-  flex: 1;
-}
+    .person img:hover {
+      transform: scale(1.1);
+    }
+
+    .person .bio {
+      flex: 1;
+    }
 
     footer {
       background: #253c2c;
@@ -83,9 +101,9 @@
   <header>
     <nav>
       <div class="logo-title">
-  <img src="logo_nuovo.png" alt="Logo" class="logo-icon">
-  <strong>Radici Digitali</strong>
-  </div>
+        <img src="logo_nuovo.png" alt="Logo" class="logo-icon">
+        <strong>Radici Digitali</strong>
+      </div>
       <div>
         <a href="index.html#esplora">Esplora</a>
         <a href="index.html#storie">Storie</a>

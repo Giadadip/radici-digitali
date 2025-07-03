@@ -114,24 +114,39 @@
 .logo-section {
   padding-bottom: 1rem;
 }
+    .logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 2px;
+  object-fit: cover;
+}
 
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div>
-        <strong>Radici Digitali</strong>
-      </div>
-      <div>
-        <a href="#esplora">Esplora</a>
-        <a href="#">Storie</a>
-        <a href="chi_siamo">Chi siamo</a>
-        <a href="#">Contribuisci</a>
-        <a href="#">IT/EN</a>
-      </div>
-    </nav>
-  </header>
+<header> 
+  <nav>
+    <div class="logo-title">
+      <img src="logo_nuovo.png" alt="Logo Radici Digitali" class="logo-icon">
+      <strong>Radici Digitali</strong>
+    </div>
+    <div>
+      <a href="index.html#esplora">Esplora</a> 
+      <a href="index.html#storie">Storie</a>
+      <a href="chi_siamo.html">Chi siamo</a>
+      <a href="index.html#contribuisci">Contribuisci</a>
+      <a href="#">IT/EN</a>
+    </div>
+  </nav>
+</header>
 
   <section class="logo-section">
     <img src="logo_nuovo.png" alt="Logo Radici Digitali">

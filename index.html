@@ -8,9 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    html {
-  scroll-behavior: smooth;
-}
+    /* --- Stile base --- */
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Merriweather', serif;
       margin: 0;
@@ -30,6 +29,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
     nav a {
       color: white;
@@ -41,6 +41,53 @@
       text-decoration: underline;
       color: #cddc39;
     }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 2px;
+      object-fit: cover;
+    }
+
+    .logo-section {
+      text-align: center;
+      padding: 1rem 0;
+      background: #f9f9f9;
+    }
+    .logo-section img {
+      display: block;
+      margin: 0 auto;
+      max-width: 300px;
+      height: auto;
+    }
+
+    .intro-section {
+      background: #e0e0e0;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .intro-box {
+      max-width: 700px;
+      margin: auto;
+      padding: 1rem;
+    }
+    .intro-box h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #253c2c;
+    }
+    .intro-box h3 {
+      font-weight: normal;
+      color: #444;
+    }
+
     .section {
       padding: 2rem;
     }
@@ -63,75 +110,80 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       background: #f1f1f1;
     }
+
     #mappa {
       height: 400px;
       margin-top: 2rem;
     }
+
     footer {
       background: #253c2c;
       color: white;
       text-align: center;
       padding: 1rem;
     }
-    .logo-section {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .logo-section img {
-      max-width: 300px;
-      height: auto;
-    }
-    .intro-section {
-      background: #e0e0e0;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    .intro-box {
-      max-width: 700px;
-      margin: auto;
-      padding: 1rem;
-    }
-    .intro-box h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: #253c2c;
-    }
-    .intro-box h3 {
-      font-weight: normal;
-      color: #444;
-    }
-    .logo-section {
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  background: #f9f9f9; /* oppure #e0e0e0 se preferisci continuità */
-}
 
-.logo-section img {
-  display: block;
-  margin: 0 auto;
-}
-.logo-section {
-  padding-bottom: 1rem;
-}
-    .logo-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logo-icon {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background-color: white;
-  padding: 2px;
-  object-fit: cover;
-}
-
+    /* --- Responsive --- */
+    @media screen and (max-width: 1024px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      nav div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .cards {
+        flex-direction: column;
+      }
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      header {
+        padding: 0.5rem;
+      }
+      .intro-box h1 {
+        font-size: 1.6rem;
+      }
+      .intro-box h3 {
+        font-size: 1rem;
+      }
+      .logo-section img {
+        max-width: 200px;
+      }
+      #mappa {
+        height: 300px;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav a {
+        margin: 0.3rem 0;
+      }
+      .intro-box h1 {
+        font-size: 1.3rem;
+      }
+      .intro-box h3 {
+        font-size: 0.9rem;
+      }
+      .card {
+        padding: 0.8rem;
+      }
+      #mappa {
+        height: 250px;
+      }
+    }
   </style>
 </head>
 <body>
+
 <header> 
   <nav>
     <div class="logo-title">
@@ -147,77 +199,67 @@
         <img src="italy.png" alt="IT" style="width: 20px; margin-right: 5px;">
         <img src="uk.png" alt="EN" style="width: 20px;">
       </a>
-
     </div>
   </nav>
 </header>
 
-  <section class="logo-section">
-    <img src="logo_nuovo.png" alt="Logo Radici Digitali">
-  </section>
+<section class="logo-section">
+  <img src="logo_nuovo.png" alt="Logo Radici Digitali">
+</section>
 
-  <section class="intro-section">
-    <div class="intro-box">
-      <h1>Scopri le storie della Presila</h1>
-      <h3>Un archivio narrativo del territorio presilano</h3>
-    </div>
-  </section>
+<section class="intro-section">
+  <div class="intro-box">
+    <h1>Scopri le storie della Presila</h1>
+    <h3>Un archivio narrativo del territorio presilano</h3>
+  </div>
+</section>
 
 <section class="section" id="esplora">
   <h2>Esplora il territorio</h2>
-    <div class="cards">
-      <div class="card">
-<h3><a href="#mappa-interattiva" style="color: inherit; text-decoration: none;">📍 Mappa Interattiva</a></h3>
-<p>Visualizza i luoghi di memoria e natura con geolocalizzazione e storie.</p>
-      </div>
-      <div class="card">
-        <h3>📜 Racconti di vita</h3>
-        <p>Ascolta le voci degli abitanti e le memorie delle generazioni passate.</p>
-      </div>
-      <div class="card">
+  <div class="cards">
+    <div class="card">
+      <h3><a href="#mappa-interattiva" style="color: inherit; text-decoration: none;">📍 Mappa Interattiva</a></h3>
+      <p>Visualizza i luoghi di memoria e natura con geolocalizzazione e storie.</p>
+    </div>
+    <div class="card">
+      <h3>📜 Racconti di vita</h3>
+      <p>Ascolta le voci degli abitanti e le memorie delle generazioni passate.</p>
+    </div>
+    <div class="card">
       <h3>🏛️ <a href="patrimonio.html" style="color: inherit; text-decoration: none;">Patrimonio culturale</a></h3>
       <p>Scopri architetture, feste, tradizioni e storie locali nascoste.</p>
-
-      </div>
-      <div class="card">
-        <h3>🌿 Natura e leggende</h3>
-        <p>Esplora sentieri, animali, piante e storie mitiche del territorio.</p>
-      </div>
     </div>
-<h3 id="mappa-interattiva" style="margin-top: 3rem;">La Presila in una mappa interattiva</h3>
-<div id="mappa" style="height: 400px; margin-top: 1rem;"></div>
+    <div class="card">
+      <h3>🌿 Natura e leggende</h3>
+      <p>Esplora sentieri, animali, piante e storie mitiche del territorio.</p>
+    </div>
+  </div>
 
-  </section>
+  <h3 id="mappa-interattiva" style="margin-top: 3rem;">La Presila in una mappa interattiva</h3>
+  <div id="mappa"></div>
+</section>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-  // Vista centrata su Presila (compromesso tra chiesa e laghi)
   var map = L.map('mappa').setView([39.30, 16.38], 11.3);
-
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contrib'
   }).addTo(map);
-  
-// Rettangolo per delimitare l'area della Presila (coordinata: [[latSudOvest, lonSudOvest], [latNordEst, lonNordEst]])
-L.rectangle([[39.26, 16.28], [39.37, 16.51]], {
-  color: '#253c2c',
-  weight: 2,
-  fillColor: '#a5d6a7',
-  fillOpacity: 0.2
-}).addTo(map).bindPopup("Area indicativa della Presila");
 
+  L.rectangle([[39.26, 16.28], [39.37, 16.51]], {
+    color: '#253c2c',
+    weight: 2,
+    fillColor: '#a5d6a7',
+    fillOpacity: 0.2
+  }).addTo(map).bindPopup("Area indicativa della Presila");
 
-
-  // Marker per la Chiesa della Madonna della Catena
   L.marker([39.27893, 16.30156]).addTo(map)
-    .bindPopup('<b>Chiesa della Madonna della Catena</b><br>📍 Via Catena 55, Casali del Manco (CS)<br><a href="patrimonio.html">Scopri di pi&ugrave;</a>');
+    .bindPopup('<b>Chiesa della Madonna della Catena</b><br>📍 Via Catena 55, Casali del Manco (CS)<br><a href="patrimonio.html">Scopri di più</a>');
 </script>
 
-
-
-    <footer>
-    © 2025 Radici Digitali – Presila Cosentina
-  </footer>
+<footer>
+  © 2025 Radici Digitali – Presila Cosentina
+</footer>
 
 </body>
 </html>

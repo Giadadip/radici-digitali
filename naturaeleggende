@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natura e Leggende | Radici Digitali</title>
+  <link rel="icon" href="favicon_radici.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* --- Stile Coerente --- */
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Merriweather', serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f2; /* Tonalità leggermente più calda/naturale */
+      color: #333;
+    }
+    header {
+      background: #253c2c;
+      color: white;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1rem;
+    }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; }
+    nav a:hover { color: #cddc39; }
+
+    .logo-title { display: flex; align-items: center; gap: 0.5rem; }
+    .logo-icon { width: 45px; height: 45px; border-radius: 50%; background: white; padding: 2px; }
+
+    /* --- Hero Section Natura --- */
+    .nature-hero {
+      background: linear-gradient(rgba(37, 60, 44, 0.7), rgba(37, 60, 44, 0.7)), 
+                  url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1500'); 
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+    .nature-hero h1 { font-size: 3rem; margin: 0; }
+    .nature-hero p { font-style: italic; font-size: 1.2rem; }
+
+    .container { max-width: 1100px; margin: auto; padding: 2rem; }
+
+    /* --- Sezioni Contenuto --- */
+    .nature-section { margin-bottom: 4rem; }
+    .nature-section h2 { 
+      color: #253c2c; 
+      border-bottom: 2px solid #cddc39; 
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    /* --- Sentieri e Flora/Fauna --- */
+    .grid-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .info-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .info-card h3 { color: #253c2c; margin-top: 0; }
+    .info-card ul { padding-left: 1.2rem; line-height: 1.8; }
+
+    /* --- Leggende Style --- */
+    .legend-box {
+      background: #253c2c;
+      color: #f1f1f1;
+      padding: 2.5rem;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    .legend-box::before {
+      content: "“";
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      font-size: 10rem;
+      color: rgba(205, 220, 57, 0.1);
+    }
+    .legend-content h3 { color: #cddc39; font-size: 1.8rem; }
+    .legend-content p { font-style: italic; line-height: 1.7; }
+
+    footer { background: #253c2c; color: white; text-align: center; padding: 2rem; margin-top: 3rem; }
+
+    @media (max-width: 768px) {
+      .nature-hero h1 { font-size: 2rem; }
+      .grid-info { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo-title">
+      <img src="logo_nuovo.png" alt="Logo" class="logo-icon">
+      <strong>Radici Digitali</strong>
+    </div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="raccontidivita.html">Storie</a>
+      <a href="patrimonio.html">Patrimonio</a>
+      <a href="chi_siamo.html">Chi siamo</a>
+    </div>
+  </nav>
+</header>
+
+<section class="nature-hero">
+  <h1>Natura e Leggende</h1>
+  <p>Tra il fruscio dei faggi e le ombre dei miti antichi.</p>
+</section>
+
+<main class="container">
+
+  <section class="nature-section">
+    <h2>I Sentieri della Memoria</h2>
+    <p>La Presila è solcata da antiche vie di comunicazione, un tempo percorsi da pastori, carbonai e pellegrini.</p>
+    <div class="grid-info">
+      <div class="info-card">
+        <h3>📍 Sentiero del Pane</h3>
+        <p>Un percorso che collega i vecchi mulini ad acqua lungo i fiumi presilani, testimoniando l'importanza della cerealicoltura montana.</p>
+      </div>
+      <div class="info-card">
+        <h3>📍 Via della Transumanza</h3>
+        <p>I grandi tratturi che portano verso i pascoli alti della Sila, utilizzati per secoli per lo spostamento delle greggi.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="nature-section">
+    <h2>Biodiversità Presilana</h2>
+    <div class="grid-info">
+      <div class="info-card">
+        <h3>🌿 Flora Locale</h3>
+        <ul>
+          <li><strong>Pino Laricio:</strong> Il re della Sila, simbolo di forza e resilienza.</li>
+          <li><strong>Castagni Secolari:</strong> Definiti un tempo "l'albero del pane" per il sostentamento che offrivano.</li>
+          <li><strong>Erbe Officinali:</strong> Origano selvatico, iperico e timo che colorano i sottoboschi.</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>🐺 Fauna Selvatica</h3>
+        <ul>
+          <li><strong>Il Lupo Appenninico:</strong> Creatura schiva, protagonista di mille racconti popolari.</li>
+          <li><strong>Lo Scoiattolo Nero:</strong> Un abitante tipico ed esclusivo dei nostri boschi.</li>
+          <li><strong>Il Capovaccaio:</strong> Raro visitatore dei cieli presilani.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="nature-section">
+    <h2>L'Anima Magica: Miti e Leggende</h2>
+    <p>Ogni roccia e ogni grotta della Presila nasconde una storia che sfida il tempo.</p>
+
+    <div class="legend-box">
+      <div class="legend-content">
+        <h3>La Leggenda del Tesoro di Alarico</h3>
+        <p>"Si narra che nelle confluenze dei nostri fiumi, dove le acque corrono veloci, il re dei Goti sia stato sepolto con il suo immenso tesoro. Gli anziani dicono che nelle notti di luna piena, il luccichio dell'oro sia ancora visibile sotto i ciottoli bianchi..."</p>
+      </div>
+    </div>
+
+    <div class="legend-box" style="margin-top: 1.5rem; background-color: #344e41;">
+      <div class="legend-content">
+        <h3>Il Monachello del Bosco</h3>
+        <p>"Un piccolo spirito dispettoso che abita le soffitte e i castagneti. Si dice che se riesci a rubargli il cappuccio rosso, ti rivelerà il luogo dove è nascosta una 'pignata' piena di monete d'oro. Ma attenzione: è più svelto del vento!"</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2025 Radici Digitali – Presila Cosentina<br>
+  <small>Valorizzazione del patrimonio naturale e immateriale</small>
+</footer>
+
+</body>
+</html>

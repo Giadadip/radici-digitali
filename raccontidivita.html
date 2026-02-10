@@ -1,72 +1,194 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Racconti di Vita | Radici Digitali</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Racconti di Vita – Radici Digitali</title>
+  <link rel="icon" href="favicon_radici.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* --- Stile coerente con la Homepage --- */
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Merriweather', serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #253c2c;
+      color: white;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; }
+    nav a:hover { color: #cddc39; }
+    
+    .logo-title { display: flex; align-items: center; gap: 0.5rem; }
+    .logo-icon { width: 45px; height: 45px; border-radius: 50%; background: white; }
+
+    /* --- Hero Section --- */
+    .archive-hero {
+      background: #e0e0e0;
+      padding: 4rem 1rem;
+      text-align: center;
+      border-bottom: 3px solid #253c2c;
+    }
+    .archive-hero h1 { font-size: 2.5rem; color: #253c2c; margin: 0; }
+    .archive-hero p { max-width: 800px; margin: 1rem auto; font-style: italic; }
+
+    /* --- Sezione Archivio --- */
+    .container { max-width: 1100px; margin: auto; padding: 2rem; }
+    
+    .archive-intro { margin-bottom: 3rem; border-left: 5px solid #cddc39; padding-left: 1rem; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .story-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+    .story-card:hover { transform: translateY(-5px); }
+
+    .card-category {
+      background: #253c2c;
+      color: white;
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card-body { padding: 1.5rem; flex-grow: 1; }
+    .card-body h3 { margin-top: 0; color: #253c2c; }
+    .source-tag { 
+      font-size: 0.85rem; 
+      color: #666; 
+      display: block; 
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    .excerpt { font-size: 0.95rem; line-height: 1.6; color: #444; }
+
+    .card-footer {
+      padding: 1rem 1.5rem;
+      background: #f1f1f1;
+      text-align: right;
+    }
+    .btn-read {
+      text-decoration: none;
+      color: #253c2c;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    .btn-read:hover { color: #cddc39; }
+
+    footer {
+      background: #253c2c;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .archive-hero h1 { font-size: 1.8rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="container">
-            <h1>Racconti di Vita</h1>
-            <p class="subtitle">L'archivio orale della Presila Cosentina</p>
-        </div>
-    </header>
+<header>
+  <nav>
+    <div class="logo-title">
+      <img src="logo_nuovo.png" alt="Logo" class="logo-icon">
+      <strong>Radici Digitali</strong>
+    </div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="chi_siamo.html">Chi siamo</a>
+      <a href="contribuisci.html">Contribuisci</a>
+    </div>
+  </nav>
+</header>
 
-    <main class="container">
-        
-        <section class="intro">
-            <h2>Memorie Custodite</h2>
-            <p>Esplora le voci, i dialetti e le storie di chi ha vissuto e trasformato i nostri borghi. Ogni scheda è un frammento di storia collettiva.</p>
-        </section>
+<section class="archive-hero">
+  <h1>Racconti di Vita</h1>
+  <p>"La memoria è un esercizio collettivo: raccogliamo le voci della Presila per non disperdere il senso della nostra comunità."</p>
+</section>
 
-        <div class="archive-grid">
-            
-            <article class="story-card">
-                <div class="card-image" style="background-image: url('https://via.placeholder.com/400x250');">
-                    <span class="tag">Tradizioni</span>
-                </div>
-                <div class="card-content">
-                    <h3>Il ciclo del grano a Casali del Manco</h3>
-                    <p class="meta">Testimonianza di: <strong>Giuseppe R. (1938)</strong></p>
-                    <p class="excerpt">"Il suono della falce era l'unica musica sotto il sole di luglio. Ci aiutavamo tutti..."</p>
-                    <a href="#" class="read-more">Ascolta il racconto →</a>
-                </div>
-            </article>
+<main class="container">
+  
+  <div class="archive-intro">
+    <h2>L'Archivio Orale</h2>
+    <p>In questa sezione sono raccolte testimonianze dirette e documenti d'archivio rielaborati. Le storie spaziano dalle memorie contadine della Sila ai racconti dell'emigrazione del dopoguerra.</p>
+  </div>
 
-            <article class="story-card">
-                <div class="card-image" style="background-image: url('https://via.placeholder.com/400x250');">
-                    <span class="tag">Emigrazione</span>
-                </div>
-                <div class="card-content">
-                    <h3>Lettere da Oltreoceano</h3>
-                    <p class="meta">Testimonianza di: <strong>Maria V. (1945)</strong></p>
-                    <p class="excerpt">"Mio padre scriveva ogni mese. Quelle buste profumavano di un mondo che non avevamo mai visto."</p>
-                    <a href="#" class="read-more">Leggi la trascrizione →</a>
-                </div>
-            </article>
+  <div class="cards-grid">
+    
+    <article class="story-card">
+      <div class="card-category">Memoria Contadina</div>
+      <div class="card-body">
+        <span class="source-tag">Fonte: Intervista raccolta a Spezzano della Sila (2023)</span>
+        <h3>Il senso del pane comune</h3>
+        <p class="excerpt">"Il forno non era solo un luogo dove cuocere. Era il Parlamento delle donne. Lì si decidevano i matrimoni e si spartivano le gioie..."</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn-read">Leggi la testimonianza →</a>
+      </div>
+    </article>
 
-            <article class="story-card">
-                <div class="card-image" style="background-image: url('https://via.placeholder.com/400x250');">
-                    <span class="tag">Saperi</span>
-                </div>
-                <div class="card-content">
-                    <h3>Le tessitrici di Spezzano</h3>
-                    <p class="meta">Testimonianza di: <strong>Concetta B. (1950)</strong></p>
-                    <p class="excerpt">"Il telaio era il battito del cuore della casa. Ogni trama raccontava una dote."</p>
-                    <a href="#" class="read-more">Guarda il video →</a>
-                </div>
-            </article>
+    <article class="story-card">
+      <div class="card-category">Emigrazione</div>
+      <div class="card-body">
+        <span class="source-tag">Fonte: Archivio Storico Cosenza - Fondo Prefettura</span>
+        <h3>Valigie di cartone e sogni di seta</h3>
+        <p class="excerpt">Lettere spedite dal Belgio da un giovane minatore di Pedace. La nostalgia della 'strina' e il freddo delle miniere del Nord.</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn-read">Sfoglia il documento →</a>
+      </div>
+    </article>
 
-        </div>
-    </main>
+    <article class="story-card">
+      <div class="card-category">Saperi Antichi</div>
+      <div class="card-body">
+        <span class="source-tag">Fonte: Ricerca demo-etno-antropologica (UNICAL)</span>
+        <h3>L'arte di "sfumare" il malocchio</h3>
+        <p class="excerpt">Un'indagine sulle pratiche rituali nei Casali del Manco. Formule segrete tramandate nella notte di Natale tra nonne e nipoti.</p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="btn-read">Guarda il video-estratto →</a>
+      </div>
+    </article>
 
-    <footer class="footer">
-        <p>&copy; 2024 Radici Digitali - Progetto di Conservazione della Memoria Storica</p>
-    </footer>
+  </div>
+</main>
+
+<footer>
+  © 2025 Radici Digitali – Progetto di salvaguardia della memoria storica della Presila Cosentina
+</footer>
 
 </body>
 </html>

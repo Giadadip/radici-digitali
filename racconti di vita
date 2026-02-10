@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racconti di Vita | Radici Digitali</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Racconti di Vita</h1>
+            <p class="subtitle">L'archivio orale della Presila Cosentina</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="intro">
+            <h2>Memorie Custodite</h2>
+            <p>Esplora le voci, i dialetti e le storie di chi ha vissuto e trasformato i nostri borghi. Ogni scheda è un frammento di storia collettiva.</p>
+        </section>
+
+        <div class="archive-grid">
+            
+            <article class="story-card">
+                <div class="card-image" style="background-image: url('https://via.placeholder.com/400x250');">
+                    <span class="tag">Tradizioni</span>
+                </div>
+                <div class="card-content">
+                    <h3>Il ciclo del grano a Casali del Manco</h3>
+                    <p class="meta">Testimonianza di: <strong>Giuseppe R. (1938)</strong></p>
+                    <p class="excerpt">"Il suono della falce era l'unica musica sotto il sole di luglio. Ci aiutavamo tutti..."</p>
+                    <a href="#" class="read-more">Ascolta il racconto →</a>
+                </div>
+            </article>
+
+            <article class="story-card">
+                <div class="card-image" style="background-image: url('https://via.placeholder.com/400x250');">
+                    <span class="tag">Emigrazione</span>
+                </div>
+                <div class="card-content">
+                    <h3>Lettere da Oltreoceano</h3>
+                    <p class="meta">Testimonianza di: <strong>Maria V. (1945)</strong></p>
+                    <p class="excerpt">"Mio padre scriveva ogni mese. Quelle buste profumavano di un mondo che non avevamo mai visto."</p>
+                    <a href="#" class="read-more">Leggi la trascrizione →</a>
+                </div>
+            </article>
+
+            <article class="story-card">
+                <div class="card-image" style="background-image: url('https://via.placeholder.com/400x250');">
+                    <span class="tag">Saperi</span>
+                </div>
+                <div class="card-content">
+                    <h3>Le tessitrici di Spezzano</h3>
+                    <p class="meta">Testimonianza di: <strong>Concetta B. (1950)</strong></p>
+                    <p class="excerpt">"Il telaio era il battito del cuore della casa. Ogni trama raccontava una dote."</p>
+                    <a href="#" class="read-more">Guarda il video →</a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Radici Digitali - Progetto di Conservazione della Memoria Storica</p>
+    </footer>
+
+</body>
+</html>

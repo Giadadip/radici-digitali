@@ -5,235 +5,161 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Radici Digitali – Presila Cosentina</title>
   <link rel="icon" href="favicon_radici.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    /* --- Stile base --- */
+    /* --- Nuova Palette Allegra --- */
+    :root {
+      --verde-vivo: #2d5a27;
+      --verde-chiaro: #e8f5e9;
+      --giallo-sole: #ffcc00;
+      --crema: #fffdf0;
+      --testo: #2c3e50;
+    }
+
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Merriweather', serif;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
-      transition: background 0.5s;
+      background: var(--crema);
+      color: var(--testo);
     }
+
+    h1, h2, h3, .logo-title {
+      font-family: 'Montserrat', sans-serif;
+    }
+
     header {
-      background: #253c2c;
+      background: var(--verde-vivo);
       color: white;
       padding: 1rem;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
     }
+
     nav a {
       color: white;
       margin: 0 1rem;
       text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
       transition: color 0.3s ease;
     }
+
     nav a:hover {
-      text-decoration: underline;
-      color: #cddc39;
+      color: var(--giallo-sole);
     }
 
-    .logo-title {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .logo-icon {
-      width: 55px;
-      height: 55px;
+    .logo-title img {
+      width: 45px;
+      height: 45px;
+      background: white;
       border-radius: 50%;
-      background-color: white;
-      padding: 2px;
-      object-fit: cover;
+      padding: 3px;
     }
 
-    .logo-section {
-      text-align: center;
-      padding: 1rem 0;
-      background: #f9f9f9;
-    }
-    .logo-section img {
-      display: block;
-      margin: 0 auto;
-      max-width: 300px;
-      height: auto;
-    }
-
+    /* --- Intro Section più solare --- */
     .intro-section {
-      background: #e0e0e0;
-      padding: 2rem 1rem;
+      background: linear-gradient(180deg, #fff 0%, var(--verde-chiaro) 100%);
+      padding: 4rem 1rem;
       text-align: center;
     }
-    .intro-box {
-      max-width: 850px; /* Allargato leggermente per ospitare meglio il testo */
-      margin: auto;
-      padding: 1rem;
-    }
-    .intro-box h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: #253c2c;
-    }
-    .intro-box h3 {
-      font-weight: normal;
-      color: #444;
-      margin-bottom: 2rem;
-    }
 
-    /* --- Nuovi stili per foto e territorio --- */
     .presila-img {
       width: 100%;
-      max-width: 800px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      margin-bottom: 2rem;
+      max-width: 900px;
+      border-radius: 30px; /* Più arrotondato = più amichevole */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border: 8px solid white;
     }
+
     .territorio-desc {
-      text-align: left;
+      max-width: 800px;
+      margin: 2rem auto;
+      font-size: 1.1rem;
       line-height: 1.8;
-      margin: 2rem 0;
-      color: #333;
     }
+
     .chicche-box {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border-left: 5px solid #253c2c;
-      margin: 2rem 0;
-      text-align: left;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    .chicche-box h4 { margin-top: 0; color: #253c2c; }
-
-    /* --- Sezione Paesi --- */
-    .paesi-section {
-      padding: 2rem;
-      text-align: center;
-      background: #f1f1f1;
-    }
-    .paesi-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .paese-link {
-      padding: 0.6rem 1.2rem;
       background: white;
-      border: 1px solid #253c2c;
+      padding: 2rem;
       border-radius: 20px;
-      text-decoration: none;
-      color: #253c2c;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    .paese-link:hover {
-      background: #253c2c;
-      color: #cddc39;
+      border: 2px solid var(--verde-chiaro);
+      display: inline-block;
+      text-align: left;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
-    .section {
-      padding: 2rem;
+    /* --- Pulsanti Paesi Colorati --- */
+    .paesi-section {
+      padding: 4rem 1rem;
+      background: white;
+      border-radius: 50px 50px 0 0;
     }
-    .cards {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
+
+    .paese-link {
+      padding: 0.8rem 1.5rem;
+      background: var(--verde-chiaro);
+      border-radius: 50px;
+      text-decoration: none;
+      color: var(--verde-vivo);
+      font-weight: bold;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid transparent;
     }
+
+    .paese-link:hover {
+      background: var(--giallo-sole);
+      transform: scale(1.1) rotate(2deg);
+      border-color: white;
+    }
+
+    /* --- Card animate --- */
+    .section { max-width: 1200px; margin: auto; padding: 4rem 1rem; }
+    
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+
     .card {
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 1rem;
-      flex: 1 1 calc(50% - 1rem);
-      min-width: 300px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    }
-    .card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      background: #f1f1f1;
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border-bottom: 5px solid var(--verde-chiaro);
     }
 
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-bottom-color: var(--giallo-sole);
+    }
+
+    .card h3 a { color: var(--verde-vivo); font-weight: bold; }
+
     #mappa {
-      height: 400px;
-      margin-top: 2rem;
+      height: 450px;
+      border-radius: 25px;
+      border: 5px solid white;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
     footer {
-      background: #253c2c;
+      background: var(--verde-vivo);
       color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    /* --- Responsive --- */
-    @media screen and (max-width: 1024px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-      nav div {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .cards {
-        flex-direction: column;
-      }
-      .card {
-        flex: 1 1 100%;
-      }
-    }
-    @media screen and (max-width: 768px) {
-      header {
-        padding: 0.5rem;
-      }
-      .intro-box h1 {
-        font-size: 1.6rem;
-      }
-      .intro-box h3 {
-        font-size: 1rem;
-      }
-      .logo-section img {
-        max-width: 200px;
-      }
-      #mappa {
-        height: 300px;
-      }
-    }
-    @media screen and (max-width: 480px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav a {
-        margin: 0.3rem 0;
-      }
-      .intro-box h1 {
-        font-size: 1.3rem;
-      }
-      .intro-box h3 {
-        font-size: 0.9rem;
-      }
-      .card {
-        padding: 0.8rem;
-      }
-      #mappa {
-        height: 250px;
-      }
+      padding: 3rem 1rem;
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
     }
   </style>
 </head>
@@ -241,87 +167,76 @@
 
 <header> 
   <nav>
-    <div class="logo-title">
-      <img src="logo_nuovo.png" alt="Logo Radici Digitali" class="logo-icon">
-      <strong>Radici Digitali</strong>
+    <div class="logo-title" style="display:flex; align-items:center; gap:10px;">
+      <img src="logo_nuovo.png" alt="Logo">
+      <span style="font-size: 1.2rem; letter-spacing: 1px;">RADICI DIGITALI</span>
     </div>
     <div>
-      <a href="index.html#esplora">Esplora</a> 
-      <a href="index.html#storie">Storie</a>
+      <a href="#esplora">Esplora</a> 
+      <a href="#storie">Storie</a>
       <a href="chi_siamo.html">Chi siamo</a>
-      <a href="contribuisci.html#contribuisci">Contribuisci</a>
-      <a href="#">
-        <img src="italy.png" alt="IT" style="width: 20px; margin-right: 5px;">
-        <img src="uk.png" alt="EN" style="width: 20px;">
-      </a>
+      <a href="contribuisci.html">Contribuisci</a>
     </div>
   </nav>
 </header>
 
-<section class="logo-section">
-  <img src="logo_nuovo.png" alt="Logo Radici Digitali">
-</section>
-
 <section class="intro-section">
-  <div class="intro-box">
-    <h1>Scopri le storie della Presila cosentina</h1>
-    <h3>Un archivio narrativo del territorio presilano</h3>
-    
-    <img src="https://images.unsplash.com/photo-1544085311-11a028465b0c?q=80&w=1200" alt="Panorama della Presila" class="presila-img">
+    <h1 style="font-size: 2.5rem; color: var(--verde-vivo); margin-bottom: 0;">Benvenuti in Presila! 🌿</h1>
+    <h3 style="margin-top: 10px; opacity: 0.8;">Un viaggio tra borghi, boschi e racconti del cuore.</h3>
+    <br>
+    <img src="https://images.unsplash.com/photo-1544085311-11a028465b0c?q=80&w=1200" alt="Panorama" class="presila-img">
 
     <div class="territorio-desc">
       <p>
-        La <strong>Presila Cosentina</strong> è una terra di transizione e meraviglia, situata tra la città di Cosenza e le vette dell'Altopiano Silano. È un mosaico di borghi storici incastonati tra boschi di castagni e vallate profonde, dove il tempo sembra scorrere con il ritmo lento delle stagioni. Questa regione non è solo un confine geografico, ma un vero scrigno di tradizioni, dialetti e memorie che Radici Digitali si impegna a preservare.
+        Sentite il profumo dei castagni e il suono antico delle campane? La <strong>Presila Cosentina</strong> vi aspetta! Non è solo un luogo, ma un'emozione che vive tra i sorrisi degli abitanti e la maestosità della Sila. Radici Digitali raccoglie queste gemme per non farle sfiorire mai.
       </p>
     </div>
 
     <div class="chicche-box">
-      <h4>Da non perdere:</h4>
-      <ul>
-        <li><strong>Natura Incontaminata:</strong> I Giganti della Sila e le riserve naturali statali.</li>
-        <li><strong>Tradizioni Vive:</strong> La lavorazione della lana, dei tessuti e l'antico rito del pane.</li>
-        <li><strong>Architettura Storica:</strong> Chiese bizantine, palazzi nobiliari e i tipici vicoli dei borghi ("rughe").</li>
+      <h4 style="color: var(--verde-vivo); font-size: 1.3rem;">✨ Da non perdere:</h4>
+      <ul style="list-style-type: '🌱 '; line-height: 2;">
+        <li><strong>Natura:</strong> Abbracciate i Giganti della Sila.</li>
+        <li><strong>Tradizioni:</strong> Il profumo del pane appena sfornato.</li>
+        <li><strong>Borghi:</strong> Perdetevi tra le "rughe" piene di fiori.</li>
       </ul>
     </div>
-  </div>
 </section>
 
 <section class="paesi-section">
-  <h2>I Comuni della Presila</h2>
-  <p>Clicca su un comune per esplorarne la storia e i racconti dedicati:</p>
+  <h2 style="color: var(--verde-vivo);">Esplora i nostri Borghi</h2>
+  <p>Ogni paese ha una storia magica da raccontare. Scegline uno!</p>
   <div class="paesi-list">
-    <a href="paesi/casali_del_manco.html" class="paese-link">Casali del Manco</a>
-    <a href="paesi/spezzano_sila.html" class="paese-link">Spezzano della Sila</a>
-    <a href="paesi/celico.html" class="paese-link">Celico</a>
-    <a href="paesi/rovito.html" class="paese-link">Rovito</a>
-    <a href="paesi/lappano.html" class="paese-link">Lappano</a>
-    <a href="paesi/zumpano.html" class="paese-link">Zumpano</a>
-    <a href="paesi/san_pietro_guarano.html" class="paese-link">San Pietro in Guarano</a>
+    <a href="#" class="paese-link">Casali del Manco</a>
+    <a href="#" class="paese-link">Spezzano della Sila</a>
+    <a href="#" class="paese-link">Celico</a>
+    <a href="#" class="paese-link">Rovito</a>
+    <a href="#" class="paese-link">Lappano</a>
+    <a href="#" class="paese-link">Zumpano</a>
+    <a href="#" class="paese-link">San Pietro in Guarano</a>
   </div>
 </section>
 
 <section class="section" id="esplora">
-  <h2>Esplora il territorio</h2>
   <div class="cards">
     <div class="card">
-      <h3><a href="#mappa-interattiva" style="color: inherit; text-decoration: none;">📍 Mappa Interattiva</a></h3>
-      <p>Visualizza i luoghi di memoria e natura con geolocalizzazione e storie.</p>
+      <h3>📍 Mappa</h3>
+      <p>Scopri dove nascono le leggende.</p>
     </div>
     <div class="card">
-      <h3>📜<a href="raccontidivita.html" style="color: inherit; text-decoration: none;"> Racconti di vita</a></h3>
-      <p>Ascolta le voci degli abitanti e le memorie delle generazioni passate.</p>
+      <h3>📜 Storie</h3>
+      <p>Le voci autentiche dei nostri nonni.</p>
     </div>
     <div class="card">
-      <h3>🏛️ <a href="patrimonio.html" style="color: inherit; text-decoration: none;">Patrimonio culturale</a></h3>
-      <p>Scopri architetture, feste, tradizioni e storie locali nascoste.</p>
+      <h3>🏛️ Cultura</h3>
+      <p>Tesori d'arte nascosti tra le valli.</p>
     </div>
     <div class="card">
-      <h3>🌿<a href="naturaeleggende.html" style="color: inherit; text-decoration: none;"> Natura e leggende</a></h3>
-      <p>Esplora sentieri, animali, piante e storie mitiche del territorio.</p>
+      <h3>🌿 Natura</h3>
+      <p>Sentieri magici e boschi incantati.</p>
     </div>
   </div>
 
-  <h3 id="mappa-interattiva" style="margin-top: 3rem;">La Presila in una mappa interattiva</h3>
+  <h3 id="mappa-interattiva" style="margin-top: 4rem; text-align: center; color: var(--verde-vivo);">La tua bussola nella Presila</h3>
   <div id="mappa"></div>
 </section>
 
@@ -329,24 +244,17 @@
 <script>
   var map = L.map('mappa').setView([39.30, 16.38], 11.3);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contrib'
+    attribution: '&copy; OpenStreetMap'
   }).addTo(map);
 
-  L.rectangle([[39.26, 16.28], [39.37, 16.51]], {
-    color: '#253c2c',
-    weight: 2,
-    fillColor: '#a5d6a7',
-    fillOpacity: 0.2
-  }).addTo(map).bindPopup("Area indicativa della Presila");
-
   L.marker([39.27893, 16.30156]).addTo(map)
-    .bindPopup('<b>Chiesa della Madonna della Catena</b><br>📍 Via Catena 55, Casali del Manco (CS)<br><a href="patrimonio.html">Scopri di più</a>');
+    .bindPopup('<b>Chiesa della Madonna della Catena</b><br>Un posto magico! ✨');
 </script>
 
 <footer>
-  © 2025 Radici Digitali – Presila Cosentina
+  <p>Fatto con ❤️ per la nostra terra.</p>
+  <p>© 2026 Radici Digitali – Presila Cosentina</p>
 </footer>
 
 </body>
 </html>
-
